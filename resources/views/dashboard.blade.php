@@ -66,4 +66,9 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<script>
+    var token = '{{ Session::token() }}';
+    var url = '{{ route('edit') }}';
+</script>
 @endsection
