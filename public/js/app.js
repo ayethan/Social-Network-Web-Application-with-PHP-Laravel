@@ -13,7 +13,7 @@ $('document').ready(function() {
 	$('#modal-save').on('click',function(){
 		$.ajax({
 			method: 'POST',
-			url: url,
+			url: urlEdi,
 			data: {body: $('#post-body').val(), postId: postId, _token: token}
 		})
 		.done(function(msg){
@@ -21,4 +21,17 @@ $('document').ready(function() {
 			$('#edit-modal').modal('hide');
 		});
 	});
+	
+$('.like').on('click', function(event) {
+    event.preventDefault();
+    postId = event.target.parentNode.parentNode.dataset['postid'];
+    var isLike = event.target.previousElementSibling == null;
+    $.ajax({
+        method: 'POST',
+        url: urlLike,
+        data: {isLike: isLike, postId: postId, _token: token}
+    })
+     .done(function() {
+
+    });
 });	
